@@ -1,0 +1,67 @@
+{% load bootstrap3 %}
+{% include "navbar.html" %}
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Gentium+Basic" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Lobster+Two|Nunito&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<body>
+ <div class="container">
+        <h1 class="text-center" style=" font-family: 'Cookie'; font-size: 5em">My Projects</h1>
+       
+        <div class="container" style="overflow-y:scroll;height: 90vh;margin-top: 90px;">
+            <div class="row">
+            {% for post in posts %}  
+            <div class="col-md-6">
+                <div class="card">
+                    <h3 id="post-title" class="card-header text-center"style="font-family: 'Kaushan Script'; font-size: 3em">{{post.title}}</h3>
+                    <a class="img-post" href=""><img src="{{post.project_image.url}}" class="img-fluid" alt="Project"></a>
+                <div class="card-footer">
+                  <h1 style="font-family: 'Kaushan Script'; font-size: 2em">Post details</h1>
+                        <h5 style="font-family: 'Gentium Basic';">{{post.post}}</h5>
+                        <a href="{{post.url}}" class="button">view page</a>
+                </div> 
+                </div>&nbsp;
+            </div>
+            {% endfor %}
+            </div> 
+        </div>
+        {% endblock %}
+        <style>
+          a{
+            font-family: 'Kaushan Script';
+            font-size: 0.7cm;
+          }
+         .card-container {
+          display: grid;
+    padding: 1em;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 1;
+}
+         .card {
+    box-shadow: 0px 1px 5px #555;
+    background-image:url('https://3.bp.blogspot.com/-piZWCW2uUbg/W2fPXxkWZgI/AAAAAAAAOu0/eydmMjTIqcwLMHEEr2H7imqoRTxMw4o9QCLcBGAs/s1600/among_trees_night_dribbble.png');
+}
+.card__title {
+    font-size: 2rem;
+    padding: .5rem;
+}
+.card__description {
+    padding: .5rem;
+    line-height: 1.6em;
+}
+.button {
+    display: block;
+    background-color: rgb(128, 145, 240);
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: .3s ease-out;
+}
+        body{
+          background-color: #111845;
+          color:white;
+        }</style>
